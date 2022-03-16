@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">NoteApp</string>
     <string name="welcome">Hoşgeldiniz</string>
+    <string name="database_name">note_database</string>
 </resources>

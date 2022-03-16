@@ -12,8 +12,4 @@ class SplashViewModel : BaseViewModel() {
     override fun onCleared() {
         super.onCleared()
     }
-
-
-
-
 }
