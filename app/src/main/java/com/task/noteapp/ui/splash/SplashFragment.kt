@@ -4,15 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.task.noteapp.MainActivity
+import androidx.navigation.fragment.findNavController
 import com.task.noteapp.R
-import com.task.noteapp.models.LottieModel
 import com.task.noteapp.databinding.SplashFragmentBinding
+import com.task.noteapp.models.LottieModel
 import com.task.noteapp.ui.base.BaseFragment
-import com.task.noteapp.ui.notelists.NoteListFragment
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -36,12 +34,12 @@ class SplashFragment : BaseFragment() {
         binding.lifecycleOwner = this
         binding.vm = viewModel
 
-        val lottieModel = LottieModel("loading_rainbow.json", "Hoşgeldiniz", R.color.purple_500, 25)
+        val lottieModel = LottieModel("loading_rainbow.json", getString(R.string.welcome), R.color.purple_500, 25)
         viewModel.lottieModel.postValue(lottieModel)
 
         lifecycleScope.launch {
             delay(3000L)
-            (activity as MainActivity).replaceFragment(NoteListFragment(), "NoteList")
+            findNavController().navigate(R.id.noteListScreen)
         }
 
         return binding.root

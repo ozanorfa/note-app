@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/splashFragment"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.task.noteapp.ui.splash.SplashFragment"
+        android:label="Splash Fragment"
+        tools:layout="@layout/splash_fragment">
+    </fragment>
+    <fragment
+        android:id="@+id/noteListFragment"
+        android:name="com.task.noteapp.ui.notelists.NoteListFragment"
+        android:label="Note List Fragment"
+        tools:layout="@layout/note_list_fragment">
+    </fragment>
+
+
+
+    <action
+        android:id="@+id/noteListScreen"
+        app:destination="@id/noteListFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"/>
+
+</navigation>

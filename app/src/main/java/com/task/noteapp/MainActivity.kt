@@ -3,6 +3,7 @@ package com.task.noteapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation.findNavController
 import com.task.noteapp.ui.splash.SplashFragment
 
 class MainActivity : AppCompatActivity() {
@@ -12,11 +13,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //İnitial Commit of Fragment
-        addFragment(SplashFragment(), "TAG")
     }
 
-    private fun addFragment(fragment: Fragment, tag: String) {
+    override fun onSupportNavigateUp() =
+        findNavController(this, R.id.fragment_container_view).navigateUp()
+
+
+    /*private fun addFragment(fragment: Fragment, tag: String) {
         supportFragmentManager.beginTransaction()
             .add(R.id.fragment_container_view, fragment, tag)
             .addToBackStack("")
@@ -28,5 +31,5 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragment_container_view, fragment, tag)
             .addToBackStack("")
             .commit()
-    }
+    }*/
 }
