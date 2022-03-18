@@ -6,10 +6,6 @@ import androidx.lifecycle.ViewModel
 open class BaseViewModel : ViewModel() {
 
 
-    protected fun setViewDataBinding(viewBinding: ViewDataBinding) {
-
-    }
-
     override fun onCleared() {
         super.onCleared()
 

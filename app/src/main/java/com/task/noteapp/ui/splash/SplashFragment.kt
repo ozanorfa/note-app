@@ -8,14 +8,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.task.noteapp.R
+import com.task.noteapp.databinding.NoteListFragmentBinding
 import com.task.noteapp.databinding.SplashFragmentBinding
 import com.task.noteapp.models.LottieModel
 import com.task.noteapp.ui.base.BaseFragment
+import com.task.noteapp.util.displayErrorDialog
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SplashFragment : BaseFragment() {
 
+    private lateinit var binding: SplashFragmentBinding
     private lateinit var viewModel: SplashViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,8 +32,7 @@ class SplashFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val binding = SplashFragmentBinding.inflate(inflater, container, false)
+        binding = SplashFragmentBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.vm = viewModel
 
@@ -40,6 +42,7 @@ class SplashFragment : BaseFragment() {
         lifecycleScope.launch {
             delay(3000L)
             findNavController().navigate(R.id.noteListScreen)
+
         }
 
         return binding.root

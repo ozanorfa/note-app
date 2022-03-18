@@ -13,10 +13,12 @@ import com.task.noteapp.MainActivity
 import com.task.noteapp.R
 import com.task.noteapp.databinding.NoteListFragmentBinding
 import com.task.noteapp.databinding.SplashFragmentBinding
+import com.task.noteapp.ui.base.BaseFragment
 import com.task.noteapp.ui.splash.SplashViewModel
 
-class NoteListFragment : Fragment() {
+class NoteListFragment : BaseFragment() {
 
+    private lateinit var binding: NoteListFragmentBinding
     private lateinit var viewModel: NoteListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,9 +31,10 @@ class NoteListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = NoteListFragmentBinding.inflate(inflater, container, false)
+        binding = NoteListFragmentBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.vm = viewModel
+        binding.adapter = NoteAdapter(listOf())
 
         return binding.root
     }

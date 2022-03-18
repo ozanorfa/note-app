@@ -20,6 +20,7 @@
 
 
 
+
     <action
         android:id="@+id/noteListScreen"
         app:destination="@id/noteListFragment"

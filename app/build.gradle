@@ -70,6 +70,8 @@ dependencies {
     implementation "android.arch.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "android.arch.navigation:navigation-ui-ktx:$navigation_version"
 
+    implementation 'com.github.blennerSilva:AwesomeDialog:2.0.6'
+
     // Room components
     def room_version = "2.4.2"
     implementation "androidx.room:room-runtime:$room_version"
