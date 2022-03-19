@@ -3,4 +3,7 @@
     <string name="welcome">Hoşgeldiniz</string>
     <string name="database_name">note_database</string>
     <string name="add_note">Add</string>
+    <string name="warning">Warning!</string>
+    <string name="fill_fields">Fill all fields</string>
+    <string name="okay">Okay</string>
 </resources>

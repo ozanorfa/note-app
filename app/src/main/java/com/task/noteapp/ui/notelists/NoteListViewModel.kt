@@ -4,13 +4,17 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import com.task.noteapp.R
 import com.task.noteapp.data.NoteDatabase
 import com.task.noteapp.data.note.Note
 import com.task.noteapp.data.note.NoteRepository
+import com.task.noteapp.ui.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class NoteListViewModel(application: Application) : ViewModel() {
+class NoteListViewModel(application: Application) : BaseViewModel() {
 
     val allNotes : LiveData<List<Note>>
     val repository : NoteRepository
@@ -23,17 +27,6 @@ class NoteListViewModel(application: Application) : ViewModel() {
 
     fun deleteNote (note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(note)
-    }
-
-
-    fun updateNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
-        repository.update(note)
-    }
-
-
-
-    fun addNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insert(note)
     }
 
 }

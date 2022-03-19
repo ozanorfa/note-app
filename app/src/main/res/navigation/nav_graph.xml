@@ -15,15 +15,35 @@
         android:id="@+id/noteListFragment"
         android:name="com.task.noteapp.ui.notelists.NoteListFragment"
         android:label="Note List Fragment"
-        tools:layout="@layout/note_list_fragment">
+        tools:layout="@layout/note_list_fragment"/>
+    <fragment
+        android:id="@+id/addNewNoteFragment"
+        android:name="com.task.noteapp.ui.addnote.AddNewNoteFragment"
+        android:label="Add New note Fragment"
+        tools:layout="@layout/add_new_note_fragment">
+        <argument
+            android:name="type"
+            android:defaultValue="NEW"
+            app:argType="com.task.noteapp.ui.addnote.NoteType"/>
+        <argument
+            android:name="title"
+            android:defaultValue=""
+            app:argType="string" />
+        <argument
+            android:name="description"
+            android:defaultValue=""
+            app:argType="string" />
     </fragment>
-
-
-
 
     <action
         android:id="@+id/noteListScreen"
         app:destination="@id/noteListFragment"
+        app:exitAnim="@anim/slide_out_left"
+        app:popExitAnim="@anim/slide_out_right"/>
+
+    <action
+        android:id="@+id/addNoteScreen"
+        app:destination="@id/addNewNoteFragment"
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
         app:popEnterAnim="@anim/slide_in_left"

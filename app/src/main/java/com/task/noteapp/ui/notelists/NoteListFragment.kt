@@ -1,20 +1,19 @@
 package com.task.noteapp.ui.notelists
 
 import android.app.Application
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.task.noteapp.MainActivity
 import com.task.noteapp.R
 import com.task.noteapp.databinding.NoteListFragmentBinding
-import com.task.noteapp.databinding.SplashFragmentBinding
+import com.task.noteapp.ui.addnote.NoteType
 import com.task.noteapp.ui.base.BaseFragment
-import com.task.noteapp.ui.splash.SplashViewModel
 
 class NoteListFragment : BaseFragment() {
 
@@ -24,7 +23,7 @@ class NoteListFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-       viewModel = ViewModelProvider(this,ViewModelFactory((activity as MainActivity).application))[NoteListViewModel::class.java]
+       viewModel = ViewModelProvider(this,ViewModelFactoryNoteList((activity as MainActivity).application))[NoteListViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -36,11 +35,16 @@ class NoteListFragment : BaseFragment() {
         binding.vm = viewModel
         binding.adapter = NoteAdapter(listOf())
 
+        binding.fabAdd.setOnClickListener {
+            val bundle = bundleOf("type" to NoteType.NEW,"title" to "", "description" to "")
+            findNavController().navigate(R.id.addNoteScreen, bundle)
+        }
+
         return binding.root
     }
 }
 
-class ViewModelFactory(private val app: Application) : ViewModelProvider.Factory {
+class ViewModelFactoryNoteList(private val app: Application) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return NoteListViewModel(app) as T
     }

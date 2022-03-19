@@ -8,11 +8,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.task.noteapp.R
-import com.task.noteapp.databinding.NoteListFragmentBinding
 import com.task.noteapp.databinding.SplashFragmentBinding
 import com.task.noteapp.models.LottieModel
 import com.task.noteapp.ui.base.BaseFragment
-import com.task.noteapp.util.displayErrorDialog
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="add_note">Add</string>
+    <string name="warning">Warning!</string>
+    <string name="fill_fields">Fill all fields</string>
+    <string name="okay">Okay</string>
 </resources>
