@@ -39,6 +39,7 @@ class AddNewNoteFragment : BaseFragment() {
         viewModel.description.postValue(args.description)
         viewModel.title.postValue(args.title)
         viewModel.type.postValue(args.type)
+        viewModel.noteID.postValue(args.noteId)
 
         binding.btnAddNote.setOnClickListener{ it ->
 

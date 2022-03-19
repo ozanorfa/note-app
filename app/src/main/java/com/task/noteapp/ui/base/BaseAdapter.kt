@@ -8,7 +8,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 
 abstract class BaseAdapter<BINDING : ViewDataBinding, ModelType>(
-    var data: List<ModelType>
+    var data: List<ModelType>,
 ) : RecyclerView.Adapter<BaseViewHolder<BINDING>>() {
 
     @get:LayoutRes
@@ -34,7 +34,9 @@ abstract class BaseAdapter<BINDING : ViewDataBinding, ModelType>(
 
     override fun onBindViewHolder(holder: BaseViewHolder<BINDING>, position: Int) {
         bind(holder.binder, data[position])
+
     }
 
     override fun getItemCount(): Int = data.size
 }
+

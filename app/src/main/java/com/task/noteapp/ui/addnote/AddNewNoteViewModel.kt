@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 class AddNewNoteViewModel(application: Application) : BaseViewModel() {
     var title       = MutableLiveData<String>()
     var description = MutableLiveData<String>()
+    var noteID      = MutableLiveData<Int>()
     var type        = MutableLiveData<NoteType>()
     val repository : NoteRepository
 
@@ -37,10 +38,11 @@ class AddNewNoteViewModel(application: Application) : BaseViewModel() {
 
         val note = Note(titleVal,descriptionVal, timeStamp)
         if (type.value!! == NoteType.NEW){
-            updateNote(note)
-        }
-        else {
             addNote(note)
+        }
+        else if (type.value!! == NoteType.CHANGE) {
+            note.id = noteID.value!!
+            updateNote(note)
         }
     }
 }

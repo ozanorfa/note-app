@@ -33,6 +33,10 @@
             android:name="description"
             android:defaultValue=""
             app:argType="string" />
+        <argument
+            android:name="noteId"
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
 
     <action
