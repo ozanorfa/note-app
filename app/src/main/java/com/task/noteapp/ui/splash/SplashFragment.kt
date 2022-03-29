@@ -34,17 +34,20 @@ class SplashFragment : BaseFragment() {
         binding.lifecycleOwner = this
         binding.vm = viewModel
 
-        val lottieModel = LottieModel("loading_rainbow.json", getString(R.string.welcome), R.color.colorPrimary, 25)
+        val lottieModel = LottieModel(
+            "loading_rainbow.json",
+            getString(R.string.welcome),
+            R.color.colorPrimary,
+            25
+        )
         viewModel.lottieModel.postValue(lottieModel)
 
         lifecycleScope.launch {
-            delay(3000L)
+            delay(2000L)
             findNavController().navigate(R.id.noteListScreen)
-
         }
 
         return binding.root
-
     }
 
 

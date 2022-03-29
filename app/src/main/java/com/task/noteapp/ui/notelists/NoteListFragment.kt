@@ -24,7 +24,10 @@ class NoteListFragment : BaseFragment(), NoteClickInterface {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-       viewModel = ViewModelProvider(this,ViewModelFactoryNoteList((activity as MainActivity).application))[NoteListViewModel::class.java]
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelFactoryNoteList((activity as MainActivity).application)
+        )[NoteListViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -37,7 +40,8 @@ class NoteListFragment : BaseFragment(), NoteClickInterface {
         binding.adapter = NoteAdapter(listOf(), this)
 
         binding.fabAdd.setOnClickListener {
-            val bundle = bundleOf("type" to NoteType.NEW, "title" to "", "description" to "", "noteId" to 0)
+            val bundle =
+                bundleOf("type" to NoteType.NEW, "title" to "", "description" to "", "noteId" to 0)
             findNavController().navigate(R.id.addNoteScreen, bundle)
         }
 
@@ -45,7 +49,12 @@ class NoteListFragment : BaseFragment(), NoteClickInterface {
     }
 
     override fun onNoteClick(any: Note) {
-        val bundle = bundleOf("type" to NoteType.CHANGE, "title" to any.noteTitle, "description" to any.noteDescription, "noteId" to any.id)
+        val bundle = bundleOf(
+            "type" to NoteType.CHANGE,
+            "title" to any.noteTitle,
+            "description" to any.noteDescription,
+            "noteId" to any.id
+        )
         findNavController().navigate(R.id.addNoteScreen, bundle)
     }
 

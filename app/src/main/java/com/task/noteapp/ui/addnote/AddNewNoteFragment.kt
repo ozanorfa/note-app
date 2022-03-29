@@ -24,7 +24,8 @@ class AddNewNoteFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = ViewModelProvider(this, ViewModelFactoryNewNote((activity as MainActivity).application)
+        viewModel = ViewModelProvider(
+            this, ViewModelFactoryNewNote((activity as MainActivity).application)
         )[AddNewNoteViewModel::class.java]
     }
 
@@ -41,17 +42,21 @@ class AddNewNoteFragment : BaseFragment() {
         viewModel.type.postValue(args.type)
         viewModel.noteID.postValue(args.noteId)
 
-        binding.btnAddNote.setOnClickListener{ it ->
+        binding.btnAddNote.setOnClickListener { it ->
 
             val title = binding.etTitle.text.toString().trim()
             val desc = binding.etDesc.text.toString().trim()
 
-            if (title.isNotEmpty() && desc.isNotEmpty()){
+            if (title.isNotEmpty() && desc.isNotEmpty()) {
                 val timeStamp = getCurrentDateTime()
-                viewModel.saveItem(title,desc,timeStamp)
+                viewModel.saveItem(title, desc, timeStamp)
                 findNavController().navigateUp()
-            }else {
-                displayWarningDialog(activity as MainActivity, getString(R.string.warning), getString(R.string.fill_fields))
+            } else {
+                displayWarningDialog(
+                    activity as MainActivity,
+                    getString(R.string.warning),
+                    getString(R.string.fill_fields)
+                )
             }
 
         }
@@ -63,4 +68,5 @@ class AddNewNoteFragment : BaseFragment() {
 class ViewModelFactoryNewNote(private val app: Application) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return AddNewNoteViewModel(app) as T
-    }}
+    }
+}

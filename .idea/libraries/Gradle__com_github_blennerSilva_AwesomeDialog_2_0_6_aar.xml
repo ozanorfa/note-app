@@ -4,6 +4,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9db719934a698640ed475a2edc368d89/jetified-AwesomeDialog-2.0.6/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9db719934a698640ed475a2edc368d89/jetified-AwesomeDialog-2.0.6/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9db719934a698640ed475a2edc368d89/jetified-AwesomeDialog-2.0.6/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1160abfa2361ecfe57b5e77decdb52df/jetified-AwesomeDialog-2.0.6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1160abfa2361ecfe57b5e77decdb52df/jetified-AwesomeDialog-2.0.6/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1160abfa2361ecfe57b5e77decdb52df/jetified-AwesomeDialog-2.0.6/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

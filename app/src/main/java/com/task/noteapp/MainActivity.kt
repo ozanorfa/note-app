@@ -19,17 +19,4 @@ class MainActivity : AppCompatActivity() {
         findNavController(this, R.id.fragment_container_view).navigateUp()
 
 
-    /*private fun addFragment(fragment: Fragment, tag: String) {
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container_view, fragment, tag)
-            .addToBackStack("")
-            .commit()
-    }
-
-    fun replaceFragment(fragment: Fragment, tag: String) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container_view, fragment, tag)
-            .addToBackStack("")
-            .commit()
-    }*/
 }

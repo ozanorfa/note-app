@@ -11,11 +11,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class AddNewNoteViewModel(application: Application) : BaseViewModel() {
-    var title       = MutableLiveData<String>()
+    var title = MutableLiveData<String>()
     var description = MutableLiveData<String>()
-    var noteID      = MutableLiveData<Int>()
-    var type        = MutableLiveData<NoteType>()
-    val repository : NoteRepository
+    var noteID = MutableLiveData<Int>()
+    var type = MutableLiveData<NoteType>()
+    val repository: NoteRepository
 
     init {
         val dao = NoteDatabase.getDatabase(application).getNotesDao()
@@ -28,7 +28,6 @@ class AddNewNoteViewModel(application: Application) : BaseViewModel() {
     }
 
 
-
     fun addNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(note)
     }
@@ -36,11 +35,10 @@ class AddNewNoteViewModel(application: Application) : BaseViewModel() {
 
     fun saveItem(titleVal: String, descriptionVal: String, timeStamp: String) {
 
-        val note = Note(titleVal,descriptionVal, timeStamp)
-        if (type.value!! == NoteType.NEW){
+        val note = Note(titleVal, descriptionVal, timeStamp)
+        if (type.value!! == NoteType.NEW) {
             addNote(note)
-        }
-        else if (type.value!! == NoteType.CHANGE) {
+        } else if (type.value!! == NoteType.CHANGE) {
             note.id = noteID.value!!
             updateNote(note)
         }

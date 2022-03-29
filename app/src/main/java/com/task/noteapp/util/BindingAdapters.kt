@@ -24,6 +24,7 @@ fun TextView.setTextColorValue(@ColorRes textColorId: Int) {
 fun bindTextSize(textView: TextView, size: Int) {
     textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, size.toFloat())
 }
+
 @BindingAdapter("android:backgroundTint")
 fun View.setTint(color: Int) = ViewCompat.setBackgroundTintList(
     this,
