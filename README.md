@@ -1,4 +1,4 @@
-# note-app
+# Note App
 
  A simple Native Note Taking Application for Android
 
